@@ -5,9 +5,12 @@ import { LoadGLTF } from "./Load";
 
 export const Scene = ({ url }) => {
   return (
-    <Canvas shadows>
-      <OrbitControls makeDefault />
+    <Canvas shadowMap colorManagement>
+      <OrbitControls makeDefault maxDistance={3} minDistance={1} />
       <ambientLight intensity={0.6} />
+      {/* створює туман */}
+      {/* <fog attach="fog" args={["#eeeeee", 1, 100]} />  */}
+
       {/* to gray color set intensity = ~80*/}
       <directionalLight intensity={0.5} />
       <Suspense fallback={<Html center>loading...</Html>}>
